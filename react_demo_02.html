@@ -14,7 +14,8 @@
 <script type="text/babel">
     var HelloComponent = React.createClass({
         render: function () {
-            return <h1>Hello {this.props.name?this.props.name:'world'}</h1>
+            //return <h1>Hello {this.props.name?this.props.name:'world'}</h1>
+            return <h1>Hello {this.props.name||'world'}</h1>
             //return React.createElement('h1',null,'Hello world');
         }
     });
