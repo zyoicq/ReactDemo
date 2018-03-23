@@ -20,9 +20,9 @@
                        checked:true
                    }
             },
-            handleChange:function (name,event) {
+            handleChange:function (event) {
                var newState={};
-               newState[name]=name=="checked"?event.target.checked:event.target.value;
+               newState[event.target.name]=event.target.name=="checked"?event.target.checked:event.target.value;
                this.setState(newState);
                console.log(newState);
             },
@@ -36,10 +36,10 @@
                 return (
                     <form onSubmit={this.submitHandler}>
                         <label htmlFor="username">请输入您的姓名:</label>
-                        <input type="text" name="username" id="username" onChange={this.handleChange.bind(this,"username")} value={this.state.username}/>
+                        <input type="text" name="username" id="username" onChange={this.handleChange} value={this.state.username}/>
                         <br/>
                         <label htmlFor="checkbox">是或者否:</label>
-                        <input type="checkbox" name="checked" id="checkbox" onChange={this.handleChange.bind(this,"checked")} checked={this.state.checked}/>
+                        <input type="checkbox" name="checked" id="checkbox" onChange={this.handleChange} checked={this.state.checked}/>
                         <br/>
                         <label htmlFor="checkbox">请选择:</label>
                         <select name="gender"  onChange={this.handleChange} value={this.state.gender}>
