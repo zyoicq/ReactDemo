@@ -1,0 +1,2 @@
+1 打开浏览器（如果使用chrome，请在命令行中启动，并添加参数--allow-file-access-from-files）；  
+2 请直接打开button.html、grid.html、tree.html、modal.html和grid-ztree.html文件，观看示例

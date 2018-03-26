@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <script src="./common/react.js"></script>
+    <script src="./common/react-dom.js"></script>
+    <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+    <script type="text/babel">
+        var Button = React.createClass({
+            contextTypes:{
+                color:React.PropTypes.string
+            },
+            render:function () {
+                return (
+                    <button style={{background:this.context.color}}>
+                        {this.props.children}
+                    </button>
+                );
+            }
+        });
+
+        var Message = React.createClass({
+            render:function () {
+                return (
+                    <div>
+                        {this.props.text} <Button>删除</Button>
+                    </div>
+                );
+            }
+        });
+
+        var MessageList = React.createClass({
+            childContextTypes:{
+                color:React.PropTypes.string
+            },
+            getChildContext:function () {
+               return {color:"purple"}
+            },
+            render:function (){
+                var children = this.props.messages.map(function(message) {
+                    return <Message text={message.text} />;
+                });
+                return <div>{children}</div>;
+            }
+        });
+
+        ReactDOM.render(<MessageList/>,document.getElementById("demo"));
+    </script>
+</body>
+</html>

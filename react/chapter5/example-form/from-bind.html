@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+  <body>
+    <div id="reactContainer"></div>
+    
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+    <script type="text/babel">
+var MyForm = React.createClass({
+    getInitialState:function(){
+        return {
+            username:'',
+            gender:'man',
+            checked:true
+        };
+    },
+    handleChange:function(name, event){
+        var newState={};
+        newState[name]=name=="checked"?event.target.checked:event.target.value;
+        this.setState(newState);
+    },
+    submitHandler:function (e) {
+        e.preventDefault();
+        var is = this.state.checked ? "是" : "不是";
+        var gender = this.state.gender == "man" ? "帅锅" : "美女";
+        var msg = this.state.username + is + gender + ".";
+        alert(msg);
+    },
+    render:function () {
+        return <form onSubmit={this.submitHandler}>
+            <label htmlFor="username">请输入您的姓名：</label>
+            <input type="text" name="username" onChange={this.handleChange.bind(this,"username")} value={this.state.username} id="username"/>
+            <br/>
+            <label htmlFor="checkbox">是或否：</label>
+            <input type="checkbox" value="是否" checked={this.state.checked} onChange={this.handleChange.bind(this,"checked")} name="checked" id="checkbox"/>
+            <br/>
+            <label htmlFor="username">请选择：</label>
+            <select name="gender" onChange={this.handleChange.bind(this,"gender")} value={this.state.gender}>
+                <option value="man">帅锅</option>
+                <option value="woman">美女</option>
+            </select>
+            <br/>
+            <button type="submit">提交</button>
+        </form>
+    }
+});
+
+ReactDOM.render(
+  <MyForm/>, 
+  document.getElementById('reactContainer')
+);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+h2 {
+  color: green;
+}
+
+li span.message-read {
+  color: grey;
+}
+
+li span.message-content {
+  display: inline-block;
+  width: 10em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

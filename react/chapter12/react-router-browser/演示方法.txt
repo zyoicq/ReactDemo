@@ -1,0 +1,9 @@
+1 如要直接查看效果，双击build文件夹下index.html文件即可；
+2 如要查看源代码，在app文件件下；
+3 如要进入开发模式，需要预先安装好node和npm，本光盘下带。
+  (1)将本文件夹拷贝到硬盘；
+  (2)启动命令行界面，进入硬盘对应的文件夹；  
+  (3)如果node_modules文件夹不存在，就运行npm install，
+     运行完成后会出现node_modules文件夹;
+  (4)在命令行运行npm start。
+  (5)如要最终发布，在命令行运行npm run deploy。

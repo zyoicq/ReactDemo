@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>modal</title>
+    <link rel="stylesheet" href="js/bootstrap-3.3.5/css/bootstrap.css" />
+    <style>
+        .modal-style{
+            position: fixed;
+            z-index: 1040;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1040;
+            background-color: #000;
+        }
+        .modal-backdrop.in {
+            opacity: .5;
+            filter: alpha(opacity=50);
+        }
+    </style>
+</head>
+<body>
+    <div id="modal-component"></div>
+<script src="js/lib/react.js"></script>
+<script src="js/lib/react-dom.js"></script>
+<script src="js/lib/browser.min.js"></script>
+<script type="text/babel" src="js/modal/modal.js"></script>
+</body>
+</html>

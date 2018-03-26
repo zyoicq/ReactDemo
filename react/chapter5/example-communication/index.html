@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+  <body>
+    <div id="reactContainer"></div>
+    
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+    <script type="text/babel">
+      var ChildComponent = React.createClass({
+        handleClick: function(){
+          if (this.props.onClick) {
+            this.props.onClick();
+          }
+        },
+        
+        render: function(){
+          return (
+              <button onClick={this.handleClick}>点击我通知父组件</button>
+          );
+        }
+      });
+      
+      var ParentComponent = React.createClass({
+        onChildClicked: function() {
+          alert('父组件收到了从子组件的点击事件。');
+        },
+        render: function(){
+          return (
+            <div style={{border:"1px"}}>
+              父组件
+              <ChildComponent onClick={this.onChildClicked}/>
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <ParentComponent/>, 
+        document.getElementById('reactContainer')
+      );
+    </script>
+  </body>
+</html>

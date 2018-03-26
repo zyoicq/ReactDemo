@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="js/bootstrap-3.3.5/css/bootstrap.css" />
+</head>
+<body>
+<div>
+    <div id="button-component"></div>
+</div>
+<script src="js/lib/react.js"></script>
+<script src="js/lib/react-dom.js"></script>
+<script src="js/lib/browser.min.js"></script>
+<script type="text/babel">
+    var ButtonComponent = React.createClass({
+        propTypes: {
+            clickHandler: React.PropTypes.func
+        },
+        render: function() {
+            var tagType = this.props.tag && 'button';
+            if (tagType == 'button') {            
+                return (
+                    <button className="btn btn-default" onClick={this.props.clickHandler.bind(this)}>
+                        {this.props.children}
+                    </button>
+                );
+            } else {
+                return (
+                    <a className="btn btn-default" href="javascript:void(0);" onClick={this.props.clickHandler.bind(this)}>
+                        {this.props.children}
+                    </a>
+                );
+            }
+        }
+    });
+    function clickEventHandler(e) {
+        console.log(this);
+        console.log('捕获点击事件成功!');
+    }
+    ReactDOM.render(
+            <ButtonComponent clickHandler={clickEventHandler}>提交</ButtonComponent>,
+            document.getElementById('button-component')
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+直接运行可观看演示。
+1 index.html演示组件交互效果；
+2 form-bind.html演示bind复用效果；
+3 form-name.html演示name复用效果。

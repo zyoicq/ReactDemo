@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script>
+      var HelloComponent = React.createClass({
+        render: function() {
+          return React.createElement('div',null,'Hello ',React.createElement('a',null,'world'));
+        }
+      });
+
+      ReactDOM.render(
+        React.createElement(HelloComponent),
+        document.body.appendChild(document.createElement('div'))
+      );
+    </script>
+  </body>
+</html>
